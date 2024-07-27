@@ -1,0 +1,18 @@
+;=============
+; RES = NUM * 3
+;=============
+
+;segmento de datos
+BEGIN-DATA
+        NUM=5       ;numero a multiplicar por 3
+        RES=?       ;donde se guarda el resultado
+END-DATA
+
+; segmento de codigo
+BEGIN-CODE                  ;AC <- [NULL]
+        MOV [NUM], AC       ;RT <- 3
+BUCLE:  MOV 3,RT            ;AC <- AC * RT
+        MUL                 ;[RES] <- AC
+        MOV AC, [RES]       ;se determina la maquina
+        TERM
+END-CODE

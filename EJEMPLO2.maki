@@ -1,0 +1,17 @@
+;   segmento de datos
+BEGIN-DATA
+        NUM=10      ; numero a calcularel factorial
+        FACT=?      ; donde se guarda el resultado
+END-DATA
+
+; segmento de codigo
+BEGIN-CODE
+        MOV 1, [FACT]
+BUCLE:  MUL [FACT], [NUM]
+        MOV AC, [FACT]
+        SUB [NUM],1
+        MOV AC, [NUM]
+        CMP [NUM],1
+        JGT BUCLE
+        TERM        ; se detiene la maquina
+END-CODE
